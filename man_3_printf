@@ -1,0 +1,23 @@
+\" Manpage for _printf
+.\" Contact Adam Brimer, Matthew Mires, or Hector Lozano correct errors or typos.
+.TH man 8 "12 Mar 2021" "1.0" "man_3_printf"
+.SH NAME
+    _printf - Format & Print Data
+.SH SYNOPSIS
+    #include "holberton.h"
+
+
+    int _printf(const char *format, ...)
+    _printf FORMAT [ARGUMENT]...
+    _printf OPTION
+.SH DESCRIPTION
+    Print ARGUMENT(s) according to FORMAT, or execute accoring to OPTION:
+.SH OPTIONS
+
+
+.SH BUGS
+No known bugs.
+
+
+.SH AUTHOR
+Adam Brimer, Matthew Mires, & Hector Lozano
