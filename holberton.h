@@ -43,6 +43,7 @@ int print_octal(token_t tok, va_list args);
 int print_hex(token_t tok, va_list args);
 int print_reverse(token_t tok, va_list args);
 int print_rot13(token_t tok, va_list args);
+int print_invalid_token(token_t tok, va_list args);
 
 /**
  * struct format - maps conversion_specifier char to correct print_fn
@@ -59,17 +60,5 @@ struct format
 /*create datatype format_t */
 typedef struct format format_t;
 
-/* create a static array of format_t for all valid chars */
-static format_t fmt[] = {
-	{'c', print_char},
-	{'s', print_string},
-	{'d', print_integer},
-	{'i', print_integer},
-	{'b', print_binary},
-	{'o', print_octal},
-	{'x', print_hex},
-	{'r', print_reverse},
-	{'R', print_rot13}
-};
 
 #endif
