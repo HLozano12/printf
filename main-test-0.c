@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	_printf("char: %c, int: %d\n", '!', 100);
+	_printf("char: %c\n", '!');
 
 	return (0);
 }

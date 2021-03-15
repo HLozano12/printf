@@ -14,14 +14,6 @@ int print_invalid_token(token_t tok, va_list args)
 	printf("%%%c", tok.conversion_specifier);
 	return (2);
 }
-int print_char(token_t tok, va_list args)
-{
-	char c = va_arg(args, int);
-	(void)tok;
-
-	printf("<char: %c>", c);
-        return (0);
-}
 int print_integer(token_t tok, va_list args)
 {
 	(void)tok;
