@@ -34,6 +34,10 @@ struct token
 /* create datatype token_t */
 typedef struct token token_t;
 
+/* prototypes for functions to get token and pointer to print function */
+token_t *get_token(const char *format, int current_pos);
+int (*get_print_fn(token_t tok))(token_t, va_list);
+
 /* prototypes for type-specific print functions */
 int print_char(token_t tok, va_list args);
 int print_string(token_t tok, va_list args);
@@ -59,6 +63,5 @@ struct format
 };
 /*create datatype format_t */
 typedef struct format format_t;
-
 
 #endif
