@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include <stdio.h>
+
 
 /**
  * _printf - prints a formatted string with optional args
