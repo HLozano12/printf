@@ -22,13 +22,6 @@ int print_char(token_t tok, va_list args)
 	printf("<char: %c>", c);
         return (0);
 }
-int print_string(token_t tok, va_list args)
-{
-	(void)tok;
-       	
-	printf("<string: %s>", va_arg(args, char*)); 
-        return (0);
-}
 int print_integer(token_t tok, va_list args)
 {
 	(void)tok;
