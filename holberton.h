@@ -41,7 +41,7 @@ int (*get_print_fn(token_t tok))(token_t, va_list);
 /* prototypes for type-specific print functions */
 int print_char(token_t tok, va_list args);
 int print_string(token_t tok, va_list args);
-int print_integer(token_t tok, va_list args);
+int print_int(token_t tok, va_list args);
 int print_binary(token_t tok, va_list args);
 int print_octal(token_t tok, va_list args);
 int print_hex(token_t tok, va_list args);
