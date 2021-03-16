@@ -18,7 +18,6 @@ int _printf(const char *format, ...)
 	/* function pointer set every time we need to handle a found token */
 	int (*print_fn)(token_t, va_list);
 
-	/* nothing to do if format is NULL so return 0 */
 	if (format == NULL)
 		return (0);
 	/* tell va_list where to start reading unknown params from ... */
@@ -26,7 +25,6 @@ int _printf(const char *format, ...)
 	/* loop over every char in format string */
 	while (format[i])
 	{
-		/* check to see if we've hit a token */
 		if (format[i] == '%')
 		{
 			/* gets all the info we need on how to handle token */
@@ -39,7 +37,6 @@ int _printf(const char *format, ...)
 			/* skips over token chars we've handled */
 			i += tok.len;
 		}
-		/* if we haven't hit a token print current char and move on */
 		else
 		{
 			_putchar(format[i]);
