@@ -17,6 +17,22 @@ int is_valid_cs_char(char c)
 }
 
 /**
+ * _skip - tells if char should be skipped looking for conversion_spec
+ * @c: char to check
+ *
+ * Return: 1 for skip char, else 0
+*/
+int _skip(char c)
+{
+	char *skip_chars = "-+#";
+
+	while (*skip_chars++)
+		if (c == *skip_chars)
+			return (1);
+	return (0);
+}
+
+/**
  * get_token - get a token_t w/ all info on how to handle % in downstream logic
  * @format: format string originally passed as first param to _printf
  * @current_pos: current index position in loop over *format
@@ -41,7 +57,7 @@ token_t *get_token(const char *format, int current_pos)
 		return (tok);
 	}
 	/* skip spaces to get to conversion_specifier char */
-	while (format[current_pos + i] == ' ')
+	while (format[current_pos + i] == ' ' || _skip(format[current_pos + i]))
 		i++;
 	/* only skip spaces for valid cs chars */
 	if (!is_valid_cs_char(format[current_pos + i]))
