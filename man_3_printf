@@ -12,8 +12,20 @@
     _printf OPTION
 .SH DESCRIPTION
     Print ARGUMENT(s) according to FORMAT, or execute accoring to OPTION:
-.SH OPTIONS
 
+.SH EXAMPLES:
+
+THE CODE: len = _printf("Let's try to printf a simple sentence.\n");
+
+THE RESULT: Let's try to printf a simple sentence.
+
+THE CODE: len = _printf("Percent:[%%]\n");
+
+THE RESULT: Percent:[%]
+
+.SH EXIT VALUES:
+
+always returns int equal to the number of characters printed
 
 .SH BUGS
 No known bugs.
