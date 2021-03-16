@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * get_token: get a token_t w/ all info on how to handle % in downstream logic
+ * get_token - get a token_t w/ all info on how to handle % in downstream logic
  * @format: format string originally passed as first param to _printf
  * @current_pos: current index position in loop over *format
  *
