@@ -24,7 +24,7 @@ int is_valid_cs_char(char c)
 */
 int _skip(char c)
 {
-	char *skip_chars = "-+#";
+	char *skip_chars = ".-+#";
 
 	while (*skip_chars++)
 		if (c == *skip_chars)
