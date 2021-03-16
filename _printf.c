@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	/* magic data type that lets us get unknown params from ... */
 	va_list args;
 	/* set every time we find a % and call get_token */
-	token_t tok;
+	token_t *tok;
 	/* function pointer set every time we need to handle a found token */
 	int (*print_fn)(token_t, va_list);
 
@@ -28,14 +28,15 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			/* gets all the info we need on how to handle token */
-			tok = *get_token(format, i);
+			tok = get_token(format, i);
 			/* gets function we need to handle printing token */
-			print_fn = get_print_fn(tok);
+			print_fn = get_print_fn(*tok);
 			/* call function to print arg in place of token */
 			/* add returned length printed to total_len */
-			total_len += print_fn(tok, args);
+			total_len += print_fn(*tok, args);
 			/* skips over token chars we've handled */
-			i += tok.len;
+			i += tok->len;
+			free(tok);
 		}
 		else
 		{

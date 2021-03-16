@@ -12,11 +12,13 @@ int (*get_print_fn(token_t tok))(token_t, va_list)
 	static format_t fmt[] = {
 		{'c', print_char},
 		{'s', print_string},
-		{'%', print_percent}
+		{'%', print_percent},
+		{'i', print_int},
+		{'d', print_int}
 	};
 	int i;
 
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 5; i++)
 		if (fmt[i].conversion_specifier == tok.conversion_specifier)
 			return (fmt[i].print_fn);
 

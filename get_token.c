@@ -10,6 +10,7 @@
 token_t *get_token(const char *format, int current_pos)
 {
 	struct token *tok = malloc(sizeof(struct token));
+	int i = 1;
 
 	if (tok == NULL)
 		return (NULL);
@@ -17,10 +18,19 @@ token_t *get_token(const char *format, int current_pos)
 	tok->pos = current_pos;
 	/* conversion_spec hard-coded to next char after % for required tasks */
 	/* extend logic here to handle flags, length modifiers, etc */
-	tok->conversion_specifier = format[current_pos + 1];
-	/* len hard-coded to 2 for required tasks */
+	if (format[current_pos + 1] == '\0')
+	{
+		tok->conversion_specifier = '\0';
+		tok->len = 1;
+		return (tok);
+	}
+	/* skip spaces to get to conversion_specifier char */
+	while (format[current_pos + i] == ' ')
+		i++;
+	tok->conversion_specifier = format[current_pos + i];
+	/* len hard-coded to 2 if next char from current_pos != NULL */
 	/* tells how many chars to skip in *format once we've handled token */
-	tok->len = 2;
+	tok->len = i + 1;
 	/* tok has more fields but we only need these 3 for required tasks */
 	/* can add further logic here as needed w/out affecting outer logic */
 
