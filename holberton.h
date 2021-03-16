@@ -19,7 +19,7 @@ int _strlen(char *str);
  * @min_width: ignore for now-- may use later in advanced tasks
  * @precision: ignore for now-- may use later in advanced tasks
  *
- * Description: %[flag][min width][precision][length modifier][conversion specifier]
+ * Description: %[flag][min width][precision][length mod][conversion specifier]
  */
 struct token
 {
@@ -59,7 +59,7 @@ int print_percent(token_t tok, va_list args);
 struct format
 {
 	char conversion_specifier;
-	int(*print_fn)(token_t, va_list);
+	int (*print_fn)(token_t, va_list);
 };
 /*create datatype format_t */
 typedef struct format format_t;
