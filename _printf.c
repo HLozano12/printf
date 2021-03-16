@@ -10,7 +10,7 @@
 int _printf(const char *format, ...)
 {
 	/* i for loop over format, total_len to keep track of chars printed */
-	int i = 0, total_len = 0;
+	int i = 0, total_len = 0, is_invalid = 0;
 	/* magic data type that lets us get unknown params from ... */
 	va_list args;
 	/* set every time we find a % and call get_token */
@@ -32,7 +32,8 @@ int _printf(const char *format, ...)
 			/* gets function we need to handle printing token */
 			print_fn = get_print_fn(*tok);
 			/* call function to print arg in place of token */
-			/* add returned length printed to total_len */
+			if (tok->conversion_specifier == '\0')
+				is_invalid = 1;
 			total_len += print_fn(*tok, args);
 			/* skips over token chars we've handled */
 			i += tok->len;
@@ -46,6 +47,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-
-	return (total_len);
+	return (is_invalid ? -1 : total_len);
 }
