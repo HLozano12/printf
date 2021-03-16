@@ -1,6 +1,21 @@
 #include "holberton.h"
 
 /**
+ * is_valid_cs_char - checks if character is a valid conversion specifier
+ * @c: char to check
+ *
+ * Return: int 1 for valid, 0 for invalid
+*/
+int is_valid_cs_char(char c)
+{
+	char *valid_cs_chars = "csid%";
+	while(*valid_cs_chars++)
+		if (c == *valid_cs_chars)
+			return (1);
+	return (0);
+}
+
+/**
  * get_token - get a token_t w/ all info on how to handle % in downstream logic
  * @format: format string originally passed as first param to _printf
  * @current_pos: current index position in loop over *format
@@ -27,10 +42,15 @@ token_t *get_token(const char *format, int current_pos)
 	/* skip spaces to get to conversion_specifier char */
 	while (format[current_pos + i] == ' ')
 		i++;
+	/* only skip spaces for valid cs chars */
+	if (!is_valid_cs_char(format[current_pos + i]))
+	{
+		tok->conversion_specifier = format[current_pos + 1];
+		tok->len = 2;
+		return (tok);
+	}
 	tok->conversion_specifier = format[current_pos + i];
-	/* len hard-coded to 2 if next char from current_pos != NULL */
-	/* tells how many chars to skip in *format once we've handled token */
-	tok->len = i + 1;
+	tok->len = 1 + i;
 	/* tok has more fields but we only need these 3 for required tasks */
 	/* can add further logic here as needed w/out affecting outer logic */
 
