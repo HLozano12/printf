@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	int (*print_fn)(token_t, va_list);
 
 	if (format == NULL)
-		return (0);
+		return (-1);
 	/* tell va_list where to start reading unknown params from ... */
 	va_start(args, format);
 	/* loop over every char in format string */
