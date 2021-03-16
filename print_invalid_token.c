@@ -10,6 +10,8 @@
 int print_invalid_token(token_t tok, va_list args)
 {
 	(void)args;
+	if (tok.conversion_specifier == '\0')
+		return (0);
 	_putchar('%');
 	_putchar(tok.conversion_specifier);
 
