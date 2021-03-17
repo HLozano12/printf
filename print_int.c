@@ -10,9 +10,15 @@
 int print_int(token_t tok, va_list args)
 {
 	int n = va_arg(args, int);
-	int i, c = n, d, len = 0;
+	int i, c = n, d, len = 0, pl;
 
 	(void)tok;
+	if (tok.padding_l)	
+		for (pl = 0; pl < tok.padding_l; pl++)
+		{
+			_putchar(' ');
+			len++;
+		}
 	if (n == 0)
 	{
 		_putchar('0');
