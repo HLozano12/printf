@@ -4,6 +4,8 @@ printf is a function used to print an output according to a format.
 
 ## Usage
 
+
+
 ## Structs
 
 ##### tok
