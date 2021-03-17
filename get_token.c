@@ -8,7 +8,7 @@
 */
 int is_valid_cs_char(char c)
 {
-	char *valid_cs_chars = "csidrR%";
+	char *valid_cs_chars = "csidSR%";
 
 	while (*valid_cs_chars++)
 		if (c == *valid_cs_chars)

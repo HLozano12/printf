@@ -53,6 +53,7 @@ int print_reverse(token_t tok, va_list args);
 int print_rot13(token_t tok, va_list args);
 int print_invalid_token(token_t tok, va_list args);
 int print_percent(token_t tok, va_list args);
+int print_S(token_t tok, va_list args);
 /**
  * struct format - maps conversion_specifier char to correct print_fn
  * @conversion_specifier: valid conversion_specifier char
