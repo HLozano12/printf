@@ -13,6 +13,8 @@ int _strlen(char *str);
  * struct token - holds information about tokens in format string
  * @pos: start index position of token in format string
  * @len: length of token chars (always 2 or greater)
+ * @padding_l: # of spaces to put before formatted token value
+ * @padding_r: # of spaces to put after formatted token value
  * @conversion_specifier: char that tells us datatype of arg
  * @length_modifier: ignore for now-- may use later in advanced tasks
  * @flag: ignore for now-- may use later in advanced tasks

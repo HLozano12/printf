@@ -13,7 +13,7 @@ int print_int(token_t tok, va_list args)
 	int i, c = n, d, len = 0, pl;
 
 	(void)tok;
-	if (tok.padding_l)	
+	if (tok.padding_l)
 		for (pl = 0; pl < tok.padding_l; pl++)
 		{
 			_putchar(' ');
