@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * is_valid_cs_char - checks if character is a valid conversion specifier
  * @c: char to check
