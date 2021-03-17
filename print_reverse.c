@@ -14,6 +14,8 @@ int print_reverse(token_t tok, va_list args)
 	char *rev;
 
 	(void)tok;
+	if (str == NULL || str == (char *)0)
+		return (_printf("(null)"));
 	while (str[l])
 		l++;
 	rev = str + (l - 1);
@@ -23,5 +25,5 @@ int print_reverse(token_t tok, va_list args)
 		rev--;
 	}
 
-	return (l - 1);
+	return (l);
 }
