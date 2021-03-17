@@ -10,17 +10,15 @@
 int print_string(token_t tok, va_list args)
 {
 	char *str = va_arg(args, char*);
-	char *string;
 	int i;
 
 	(void)tok;
+	/* return another call to _printf to handle NULL and return length */
 	if (str == NULL || str == (char *)0)
-		string = "(null)";
-	else
-		string = str;
-/* passing through string to obtain length */
-	for (i = 0; string[i] != '\0'; i++)
-		_putchar(string[i]);
+		return (_printf("(null)"));
+	/* passing through string to obtain length */
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
 
 	return (i);
 }

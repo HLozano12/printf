@@ -4,7 +4,7 @@
  * @tok: voided for this function
  * @args: variadic args from _printf
  *
- * Return: int length of printed string 
+ * Return: int length of printed string
 */
 int print_rot13(token_t tok, va_list args)
 {
@@ -13,7 +13,7 @@ int print_rot13(token_t tok, va_list args)
 	/* get our not-yet-rot13ed string from va_arg w/ char* cast */
 	char *s = va_arg(args, char*);
 	/* array w/ ASCII char 'A'-'z' (65-122) set to rot13 char */
-	const char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLM[\\]^_`nopqrstuvwxyzabcdefghijklm";
+	char *rot = "NOPQRSTUVWXYZABCDEFGHIJKLM[\\]^_`nopqrstuvwxyzabcdefghijklm";
 
 	(void)tok;
 	/* same check for NULL string that we do in print_string */

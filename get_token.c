@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * is_valid_cs_char - checks if character is a valid conversion specifier
  * @c: char to check
@@ -11,22 +12,6 @@ int is_valid_cs_char(char c)
 
 	while (*valid_cs_chars++)
 		if (c == *valid_cs_chars)
-			return (1);
-	return (0);
-}
-
-/**
- * _skip - tells if char should be skipped looking for conversion_spec
- * @c: char to check
- *
- * Return: 1 for skip char, else 0
-*/
-int _skip(char c)
-{
-	char *skip_chars = ".-+#";
-
-	while (*skip_chars++)
-		if (c == *skip_chars)
 			return (1);
 	return (0);
 }
