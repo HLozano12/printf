@@ -9,12 +9,16 @@
  */
 int print_string(token_t tok, va_list args)
 {
-	char *string = va_arg(args, char*);
+	char *str = va_arg(args, char*);
 	int i;
 
 	(void)tok;
-/* passing through string to obtain length */
-	for (i = 0; string[i] != '\0'; i++)
-		_putchar(string[i]);
+	/* return another call to _printf to handle NULL and return length */
+	if (str == NULL || str == (char *)0)
+		return (_printf("(null)"));
+	/* passing through string to obtain length */
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+
 	return (i);
 }

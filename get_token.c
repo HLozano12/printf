@@ -8,7 +8,7 @@
 */
 int is_valid_cs_char(char c)
 {
-	char *valid_cs_chars = "csid%";
+	char *valid_cs_chars = "csidrSR%";
 
 	while (*valid_cs_chars++)
 		if (c == *valid_cs_chars)
@@ -50,8 +50,10 @@ token_t *get_token(const char *format, int current_pos)
 		tok->len = 2;
 		return (tok);
 	}
+	/* if we havent returned tok by now, conversion_specifier is valid */
 	tok->conversion_specifier = format[current_pos + i];
-	tok->len = 1 + i;
+	/* token length is 1 + i to account for '%' + [optional chars] */
+	tok->len = i + 1;
 	/* tok has more fields but we only need these 3 for required tasks */
 	/* can add further logic here as needed w/out affecting outer logic */
 
