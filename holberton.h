@@ -26,6 +26,8 @@ struct token
 	int pos;
 	int len;
 	char conversion_specifier;
+	int padding_l;
+	int padding_r;
 	char length_modifier;
 	char flag;
 	int min_width;
