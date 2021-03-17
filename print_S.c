@@ -17,7 +17,7 @@ int print_S(token_t tok, va_list args)
 	(void)tok;
 	/* return another call to _printf to handle NULL and return length */
 	if (str == NULL || str == (char *)0)
-		return (_printf("(null)"));
+		return (_printf("%%S"));
 	/* passing through string to obtain length */
 	for (i = 0; str[i] != '\0'; i++)
 	{
