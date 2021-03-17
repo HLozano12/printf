@@ -17,12 +17,13 @@ int (*get_print_fn(token_t tok))(token_t, va_list)
 		{'i', print_int},
 		{'d', print_int},
 		{'R', print_rot13},
-		{'S', print_S}
+		{'S', print_S},
+		{'r', print_reverse}
 	};
 	int i;
 
 	/* loop over fmt, return correct func. if conversion_specifiers match */
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 8; i++)
 		if (fmt[i].conversion_specifier == tok.conversion_specifier)
 			return (fmt[i].print_fn);
 	/* if tok.conversion_specifier is not in fmt, return default func */
