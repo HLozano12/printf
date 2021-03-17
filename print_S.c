@@ -27,7 +27,7 @@ int print_S(token_t tok, va_list args)
 			/* get first and last hex digits */
 			d1 = b16[c / 16];
 			d2 = b16[c % 16];
-			len += _printf("\\x%c%c", d1, d1);
+			len += _printf("\\x%c%c", d1, d2);
 		}
 		else
 		{
