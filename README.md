@@ -4,11 +4,26 @@ printf is a function used to print an output according to a format.
 
 ## Usage
 
-
+Print ARGUMENT(s) according to FORMAT, or execute accoring to OPTION:
 
 ## Structs
 
-##### tok
+### struct token - holds information about tokens in format string
+#### @pos: start index position of token in format string
+#### @len: length of token chars (always 2 or greater)
+#### @padding_l: # of spaces to put before formatted token value
+#### @padding_r: # of spaces to put after formatted token value
+#### @conversion_specifier: char that tells us datatype of arg
+#### @length_modifier: ignore for now-- may use later in advanced tasks
+#### @flag: ignore for now-- may use later in advanced tasks
+#### @min_width: ignore for now-- may use later in advanced tasks
+#### @precision: ignore for now-- may use later in advanced tasks
+#### Description: %[flag][min width][precision][length mod][conversion specifier]
+
+### struct format - maps conversion_specifier char to correct print_fn
+#### @conversion_specifier: valid conversion_specifier char
+#### @print_fn: pointer to function to handle type-specific printing
+#### Description: used to get print_fn for valid conversion_specifier
 
 ## Prototypes
 
