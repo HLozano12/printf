@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * is_valid_cs_char - checks if character is a valid conversion specifier
  * @c: char to check
@@ -43,7 +42,6 @@ token_t *get_token(const char *format, int current_pos)
 {
 	struct token *tok = malloc(sizeof(struct token));
 	int i = 1;
-	char cs;
 
 	if (tok == NULL)
 		return (NULL);
@@ -58,7 +56,7 @@ token_t *get_token(const char *format, int current_pos)
 		return (tok);
 	}
 	/* skip spaces to get to conversion_specifier char */
-	while (format[current_pos + i] == ' ' || _skip(format[current_pos + i]))
+	while (format[current_pos + i] == ' ')
 		i++;
 	/* only skip spaces for valid cs chars */
 	if (!is_valid_cs_char(format[current_pos + i]))
@@ -67,12 +65,10 @@ token_t *get_token(const char *format, int current_pos)
 		tok->len = 2;
 		return (tok);
 	}
-	cs = format[current_pos + i];
-	if ((cs == 'd' || cs == 'i') && format[current_pos + i - 1] == ' ')
-		tok->padding_l = 1;
-
+	/* if we havent returned tok by now, conversion_specifier is valid */
 	tok->conversion_specifier = format[current_pos + i];
-	tok->len = 1 + i;
+	/* token length is 1 + i to account for '%' + [optional chars] */
+	tok->len = i + 1;
 	/* tok has more fields but we only need these 3 for required tasks */
 	/* can add further logic here as needed w/out affecting outer logic */
 
