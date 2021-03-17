@@ -10,7 +10,9 @@
 int print_S(token_t tok, va_list args)
 {
 	char *str = va_arg(args, char*);
+	const char *b16 = "0123456789ABCDEF";
 	int i, len = 0, c;
+	char d1, d2;
 
 	(void)tok;
 	/* return another call to _printf to handle NULL and return length */
@@ -21,7 +23,12 @@ int print_S(token_t tok, va_list args)
 	{
 		c = str[i];
 		if ((c > 0 && c < 32) || (c >= 127))
-			len += _printf("\\x%d%d", c / 10, c % 10);
+		{
+			/* get first and last hex digits */
+			d1 = b16[c / 16];
+			d2 = b16[c % 16];
+			len += _printf("\\x%c%c", d1, d1);
+		}
 		else
 		{
 			_putchar(c);
