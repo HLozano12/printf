@@ -23,5 +23,5 @@ int print_reverse(token_t tok, va_list args)
 		rev--;
 	}
 
-	return (l);
+	return (l - 1);
 }
