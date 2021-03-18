@@ -22,6 +22,7 @@ int print_S(token_t tok, va_list args)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		c = str[i];
+/* if c is special char */
 		if ((c > 0 && c < 32) || (c >= 127))
 		{
 			/* get first and last hex digits */
